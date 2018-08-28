@@ -9,6 +9,8 @@
 }
 
 h1 {
+    padding-top: 2rem;
+    padding-bottom: 1rem;
     font-size: 3rem;
 }
 .categoriesList {
@@ -18,8 +20,22 @@ h1 {
     margin-top: 0px;
     font-size: 0.9rem;
 }
-.categoriesList > li > span {
+.categoriesList > li > span, .categoriesList > li > a, .categoriesList > li > b {
     font-family: 'Moyenage';
+}
+.categoriesList > li > b {
+    /* font-family: 'PaladinPCRus Medium';*/
+    font-weight: normal;
+    font-size: 2rem;
+    position: relative;
+    left: -15px;
+    color: #8d120d;
+}
+.categoriesList > li > a {
+    color: #e2c56a;
+}
+.categoriesList > li > a:hover {
+    color: #a8934f;
 }
 .pagination span a, .pagination .current {
     padding: 0 6px 3px 6px;
@@ -35,6 +51,9 @@ h1 {
     padding: 0 0 20px 0;
 }
 */
+.textBlock ul {
+    margin-top: -15px;
+}
 .textBlock ul > li {
     padding: 3px 0px 0px 20px;
 }
