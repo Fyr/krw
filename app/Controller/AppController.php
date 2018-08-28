@@ -72,4 +72,7 @@ class AppController extends Controller {
 		throw new NotFoundException();
 	}
 
+	public function inProgress() {
+		$this->redirect(array('controller' => 'pages', 'action' => 'inprogress'));
+	}
 }

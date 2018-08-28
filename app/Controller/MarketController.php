@@ -1,14 +1,17 @@
 <?php
 App::uses('AppController', 'Controller');
 App::uses('AppModel', 'Model');
-App::uses('Portfolio', 'Model');
 App::uses('Media', 'Media.Model');
 App::uses('Media', 'View/Helper');
-class PortfolioController extends AppController {
+class MarketController extends AppController {
 	public $name = 'Portfolio';
 	public $uses = array('Media.Media', 'Portfolio');
 	public $helpers = array('ObjectType', 'Media');
-	
+
+	public function beforeFilter() {
+		$this->inProgress();
+	}
+	/*
 	const PER_PAGE = 100;
 	
 	public function index() {
@@ -31,4 +34,5 @@ class PortfolioController extends AppController {
 		$this->set(compact('article', 'aMedia'));
 
 	}
+	*/
 }

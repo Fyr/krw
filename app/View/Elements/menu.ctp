@@ -3,7 +3,7 @@
         array('title' => 'Wiki', 'subTitle' => 'энциклопедия<br />KingsRoad', 'url' => array('controller' => 'wiki', 'action' => 'index')),
         array('title' => 'Игрокам', 'subTitle' => 'статьи, обзоры,<br />прохождения', 'url' => array('controller' => 'articles', 'action' => 'index')),
         array('title' => 'Биржа', 'subTitle' => 'продать / купить<br />аккаунт безопасно', 'url' => array('controller' => 'market', 'action' => 'index')),
-        array('title' => 'Галерея', 'subTitle' => 'медиа, пиксель-арт,<br />скриншоты', 'url' => array('controller' => 'market', 'action' => 'index'))
+        array('title' => 'Галерея', 'subTitle' => 'медиа, пиксель-арт,<br />скриншоты', 'url' => array('controller' => 'gallery', 'action' => 'index'))
     );
 ?>
 <ul class="mainMenu">

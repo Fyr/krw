@@ -15,9 +15,9 @@ class ArticlesController extends AppController {
 	protected $objectType;
 
 	public function beforeFilter() {
-		// $this->objectType = $this->getObjectType();
-		$this->objectType = 'SiteArticle';
-		parent::beforeFilter();
+		$this->inProgress();
+		// $this->objectType = 'SiteArticle';
+		// parent::beforeFilter();
 	}
 	
 	public function beforeRender() {

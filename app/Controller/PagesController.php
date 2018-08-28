@@ -12,17 +12,10 @@ class PagesController extends AppController {
 	public $helpers = array('ArticleVars', 'Media.PHMedia', 'Core.PHTime');
 
 	public function home() {
-		$this->set('isHome', true);
+		$this->set('article', $this->Page->findBySlug('home'));
 	}
 
-	public function skills() {
-		$aSkillsCat = $this->SkillsCategory->getOptions();
-
-		$aSkills = $this->Skill->find('all', array('order' => array('Skill.cat_id' => 'asc', 'Skill.sorting' => 'asc')));
-		$aSkills = Hash::combine($aSkills, '{n}.Skill.id', '{n}.Skill', '{n}.Skill.cat_id');
-
-		$aWorkExp = $this->WorkExp->find('all', array('order' => 'sorting'));
-		$this->set(compact('aSkills', 'aSkillsCat', 'aWorkExp'));
+	public function inprogress() {
 	}
 
 	public function view($slug) {
@@ -31,7 +24,7 @@ class PagesController extends AppController {
 		$article = $this->Page->findBySlug($slug);
 		$this->set('article', $article);
 		
-		$this->currMenu = $slug;
+		// $this->currMenu = $slug;
 	}
 	
 	public function notExists() {
