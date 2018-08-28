@@ -42,7 +42,7 @@
 				<ul class="smallMenu menu">
 					<li><a href="/">Главная</a></li>
 					<li><a href="<?=$this->Html->url(array('controller' => 'pages', 'action' => 'view', 'about'))?>">О проекте</a></li>
-					<li><a href="mailto:fyr@tut.by?subject=KRwiki.net%20contacts">Контакты</a></li>
+					<li><a href="mailto:fyr@tut.by?subject=<?=Configure::read('domain.title')?>%20contacts">Контакты</a></li>
 				</ul>
 				<!--ul class="smallMenu languages">
 					<li><a href="#">RU</a></li>

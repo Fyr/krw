@@ -7,6 +7,6 @@
 </ul>
 <ul class="smallMenu subMenu">
     <li><a href="<?=$this->Html->url(array('controller' => 'pages', 'action' => 'view', 'about'))?>">О проекте</a></li>
-    <li><a href="/inprogress">Контакты</a></li>
-    <li><a href="/inprogress">Отказ от прав</a></li>
+    <li><a href="mailto:fyr@tut.by?subject=<?=Configure::read('domain.title')?>%20contacts">Контакты</a></li>
+    <li><a href="<?=$this->Html->url(array('controller' => 'pages', 'action' => 'view', 'disclaimer'))?>">Отказ от ответственности</a></li>
 </ul>

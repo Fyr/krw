@@ -57,3 +57,11 @@ h1 {
 .textBlock ul > li {
     padding: 3px 0px 0px 20px;
 }
+.footer .centerMenus .smallMenu {
+    font-size: 17px;
+    font-family: 'Moyenage';
+}
+.footer .centerMenus .smallMenu.subMenu {
+    font-size: 12px;
+    font-family: Arial, Helvetica, sans-serif;
+}

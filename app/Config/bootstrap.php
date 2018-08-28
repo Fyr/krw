@@ -29,7 +29,7 @@ Configure::write('Recaptcha.privateKey', RECAPTCHA_PRIVATE_KEY);
 
 Configure::write('domain', array(
 	'url' => 'krwiki.loc',
-	'title' => 'krWiki.loc'
+	'title' => 'KRwiki.loc'
 ));
 
 define('AUTH_ERROR', __('Invalid username or password, try again'));
