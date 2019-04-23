@@ -1,49 +1,55 @@
 <?
     $aCategories = array(
-        /*
         'Классы' => array(
-            'Рыцарь' => array('action' => 'classes', 'knight'),
-            'Лучник' => array('action' => 'classes', 'archer'),
-            'Маг' => array('action' => 'classes', 'mage')
+            'class_knight' => 'Рыцарь',
+            'class_archer' => 'Лучник',
+            'class_mage' => 'Маг'
         ),
         'Умения' => array(
-            'Рыцарь' => array('action' => 'skills', 'knight'),
-            'Лучник' => array('action' => 'skills', 'archer'),
-            'Маг' => array('action' => 'skills', 'mage')
+            'skills_knight' => 'Активные умения - Рыцарь',
+            'skills_archer' => 'Активные умения - Лучник',
+            'skills_mage' => 'Активные умения - Маг',
+            'skills_passive' => 'Пассивные умения - все классы',
         ),
-        */
+
     );
 ?>
 <div class="categories">
     <ul class="categoriesList">
         <li><b>KingsRoad Wiki</b></li>
+<?
+    foreach($aCategories as $cat_title => $menu) {
+?>
         <li>
-            <a href="/wiki/">Классы</a>
-        </li>
-        <li>
-            <a href="/wiki/">Деревня</a>
-        </li>
-        <li>
-            <a href="/wiki/">Драконы</a>
-        </li>
-        <li>
-            <a href="/wiki/">Камни и призмы</a>
-        </li>
-        <li>
-            <a href="/wiki/">Материалы развития</a>
-        </li>
-        <li>
-            <a href="/wiki/">Игровые ресурсы</a>
-        </li>
-        <li>
-            <a href="/wiki/">Умения</a>
-        </li>
-        <!-- li>
-            <span>Раздел4</span>
+            <span><?=$cat_title?></span>
             <ul>
-                <li><a href="#">Подраздел1</a></li>
-                <li><a href="#">Подраздел2</a></li>
+<?
+        foreach($menu as $slug => $title) {
+?>
+                <li><a href="<?=$this->Html->url(array('controller' => 'wiki', 'action' => 'view', $slug))?>"><?=$title?></a></li>
+<?
+        }
+?>
+
             </ul>
-        </li-->
+        </li>
+<?
+    }
+?>
+        <li>
+            <a href="/pages/inprogress">Деревня</a>
+        </li>
+        <li>
+            <a href="/pages/inprogress">Драконы</a>
+        </li>
+        <li>
+            <a href="/pages/inprogress">Камни и призмы</a>
+        </li>
+        <li>
+            <a href="/pages/inprogress">Материалы развития</a>
+        </li>
+        <li>
+            <a href="/pages/inprogress">Игровая валюта</a>
+        </li>
     </ul>
 </div>

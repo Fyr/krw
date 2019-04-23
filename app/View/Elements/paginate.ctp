@@ -7,7 +7,7 @@
 		)));
 ?>
 <div class="pagination">
-	Страницы: <?=$this->Paginator->numbers(array('separator' => ' '))?>
+	Страницы: <?=str_replace('href="/articles/page/:page">1', 'href="/articles">1', $this->Paginator->numbers(array('separator' => ' ')))?>
 </div>
 		<!-- div class="pagination">
 			Страницы:

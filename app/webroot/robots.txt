@@ -7,4 +7,5 @@ Disallow: /js/
 Disallow: /files/
 Allow: /$
 Allow: /pages/view/about
+Allow: /articles*
 Host: krwiki.net

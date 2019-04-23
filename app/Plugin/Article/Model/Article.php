@@ -6,4 +6,9 @@ class Article extends AppModel {
 	public $validate = array(
 		'title' => 'notempty'
 	);
+
+	public function viewed($id) {
+		$sql = "UPDATE {$this->useTable} SET views = views + 1 WHERE id = {$id}";
+		$this->query($sql);
+	}
 }

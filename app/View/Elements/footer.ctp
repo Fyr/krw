@@ -1,7 +1,7 @@
 <ul class="smallMenu">
     <li><a href="/">Главная</a></li>
     <li><a href="/inprogress">Wiki</a></li>
-    <li><a href="/inprogress">Игрокам</a></li>
+    <li><a href="/articles">Статьи</a></li>
     <li><a href="/inprogress">Биржа</a></li>
     <li><a href="/inprogress">Галерея</a></li>
 </ul>

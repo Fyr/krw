@@ -8,22 +8,22 @@ class ObjectTypeHelper extends AppHelper {
             'index' => array(
                 'Article' => __('Articles'),
                 'Page' => __('Static pages'),
-                'Portfolio' => __('Portfolio'),
-                'WorkExp' => __('Work Experience'),
+                'WikiSection' => __('Wiki Sections'),
+                'WikiArticle' => __('Wiki Articles'),
                 'User' => __('Users'),
             ),
             'create' => array(
                 'Article' => __('Create Article'),
                 'Page' => __('Create Static page'),
-                'Portfolio' => __('Create Portfolio work'),
-                'WorkExp' => __('Create WorkExp'),
+                'WikiSection' => __('Create Wiki Section'),
+                'WikiArticle' => __('Create Wiki Article'),
                 'User' => __('Create User'),
             ),
             'edit' => array(
                 'Article' => __('Edit Article'),
                 'Page' => __('Edit Static page'),
-                'Portfolio' => __('Edit Portfolio work'),
-                'WorkExp' => __('Edit WorkExp'),
+                'WikiSection' => __('Edit Wiki Section'),
+                'WikiArticle' => __('Edit Wiki Article'),
                 'User' => __('Edit User'),
             ),
             'view' => array(

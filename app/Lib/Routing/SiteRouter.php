@@ -21,12 +21,20 @@ class SiteRouter extends Router {
 				'action' => 'view',
 				$article['Page']['slug']
 			);
+		} elseif ($objectType == 'WikiArticle') {
+			$url = array(
+				'controller' => 'wiki',
+				'action' => 'view',
+				$article[$objectType]['slug']
+			);
 		} else {
 			$url = array(
-				'controller' => 'articles',
+				'controller' => 'Articles',
 				'action' => 'view',
-				$article['SiteArticle']['slug']
+				'objectType' => $objectType,
+				'slug' => $article[$objectType]['slug']
 			);
+
 		}
 		return parent::url($url);
 	}

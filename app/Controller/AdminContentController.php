@@ -11,16 +11,16 @@ class AdminContentController extends AdminController {
             'Page' => array(
             	'fields' => array('title', 'slug')
             ),
-        	'Portfolio' => array(
-        		'fields' => array('created', 'title', 'published', 'featured', 'sorting')
-        	),
-			'WorkExp' => array(
-				'fields' => array('period', 'company', 'position', 'project', 'tech_stack', 'sorting'),
-				'order' => array('WorkExp.sorting' => 'asc')
-			),
         	'SiteArticle' => array(
-        		'fields' => array('created', 'title', 'slug', 'featured', 'published')
-        	)
+        		'fields' => array('created', 'modified', 'title', 'slug', 'featured', 'published')
+        	),
+			'WikiSection' => array(
+				'fields' => array('id', 'title', 'published', 'sorting'),
+				'order' => array('WikiSection.sorting' => 'ASC')
+			),
+			'WikiArticle' => array(
+				'fields' => array('created', 'modified', 'title', 'slug', 'published')
+			)
         );
         
         $aRowset = $this->PCArticle->setModel($objectType)->index();

@@ -71,7 +71,7 @@ class PCArticleComponent extends Component {
 		} elseif ($id) {
 			// Set up flags
 			foreach($aFlags as $field) {
-				if ($article[$this->model()->alias][$field]) {
+				if (Hash::get($article, $this->model()->alias.'.'.$field)) {
 					$article[$this->model()->alias]['status'][] = $field;
 				}
 			}

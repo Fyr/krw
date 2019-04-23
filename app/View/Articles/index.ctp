@@ -1,31 +1,30 @@
 <?
-	echo $this->element('title', array('title' => 'Мой блог', 'subtitle' => 'Полезные и интересные статьи на разные темы'));
-?>
-<div class="block">
-<?
+	// echo $this->element('title', array('title' => 'Мой блог', 'subtitle' => 'Полезные и интересные статьи на разные темы'));
 	foreach($aArticles as $i => $article) {
 		$this->ArticleVars->init($article, $url, $title, $teaser, $src, '150x');
 ?>
-	<div class="media">
+
+	<h2>
+		<a href="<?=$url?>"><?=$title?></a>
+	</h2>
 <?
 		if ($src) {
 ?>
-		<a class="pull-left" href="<?=$url?>">
-			<img class="media-object thumb" src="<?=$src?>" alt="<?=$title?>">
+	<div class="frame leftImg">
+		<a href="<?=$url?>">
+			<img src="<?=$src?>" alt="<?=$title?>">
 		</a>
+	</div>
 <?
 		}
 ?>
-		<div class="media-body">
-			<h4 class="media-heading"><a href="<?=$url?>"><?=$title?></a></h4>
-			<p><?=$teaser?></p>
-			<?=$this->element('more', compact('url'))?>
-		</div>
+	<p><?=$teaser?></p>
+	<div>
+		<b><?=$this->PHTime->niceShort($article['SiteArticle']['created'])?></b>
 	</div>
+	<?=$this->element('more', compact('url'))?>
+	<hr />
 <?
 	}
-?>
-</div>
-<?
 	echo $this->element('paginate');
 ?>

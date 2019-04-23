@@ -71,7 +71,7 @@ body {
     color: #fff;
     text-decoration: none;
     font-weight: bold;
-    text-shadow: 3px 3px 1px rgba(0,0,0,1);
+    /* text-shadow: 3px 3px 1px rgba(0,0,0,1); */
 }
 
 .header .menu a:hover {
@@ -319,9 +319,6 @@ h6 {
     padding: 5px 0 5px 20px;
 }
 
-.textBlock h2, .textBlock h3 {
-    padding-bottom: 20px;
-}
 
 hr {
     margin: 0 0 20px 0;
@@ -507,10 +504,18 @@ hr {
     color: #e2c56a;
 }
 
-@media (hover:hover) {
-    .mainMenu li a:hover:before {
+/* @media (hover:hover) { */
+
+    .mainMenu li a:hover {
+        /* background: url('../img/menu-active-back.png') repeat-x left top; */
+        /* margin-left: 20px;
+        margin-right: 20px;  */
+    }
+
+
+    /* .mainMenu li a:hover:before {
         content: '';
-        background: url(../img/menu-active-left.png) no-repeat left top;
+        background: url('../img/menu-active-left.png') no-repeat left top;
         width: 36px;
         height: 65px;
         display: block;
@@ -519,38 +524,36 @@ hr {
         left: -36px;
     }
 
-    .mainMenu li a:hover {
-        background: url(../img/menu-active-back.png) repeat-x left top;
-        margin-left: 20px;
-        margin-right: 20px; 
-    }
-
-    .mainMenu li a:hover .title {
-        text-shadow: 0 0 20px #feb300;
-    }
-
     .mainMenu li a:hover:after{
         content: '';
-        background: url(../img/menu-active-right.png) no-repeat left top;
+        background: url('../img/menu-active-right.png') no-repeat left top;
         width: 40px;
         height: 65px;
         display: block;
         position: absolute;
         top: 0;
         right: -40px;
-    }
+    } */
+    
 
-    .mainMenu li a:hover .centerPart{
-        position: relative;
-        z-index: 1;
-        margin-left: -20px;
-        margin-right: -20px;
+    .mainMenu li a:hover .title {
+        text-shadow: 0 0 20px #feb300;
     }
 
     .mainMenu li a:hover .subTitle{
         color: #e2c56a;
     }
-}
+    
+
+    /* .mainMenu li a:hover .centerPart{
+        position: relative;
+        z-index: 1;
+        margin-left: -20px;
+        margin-right: -20px;
+    } */
+
+    
+/* } */
 
 
 .footer {

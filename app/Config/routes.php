@@ -7,8 +7,8 @@ Router::connectNamed(
 );
 */
 Router::connect('/', array('controller' => 'pages', 'action' => 'home'));
-Router::connect('/cv', array('controller' => 'pages', 'action' => 'skills'));
-Router::connect('/pages/view/:slug.html',
+// Router::connect('/cv', array('controller' => 'pages', 'action' => 'skills'));
+Router::connect('/pages/:slug',
 	array(
 		'controller' => 'pages', 
 		'action' => 'view',
@@ -17,10 +17,44 @@ Router::connect('/pages/view/:slug.html',
 		'pass' => array('slug')
 	)
 );
-/*
-Router::connect('/articles/:slug.html', 
+Router::connect('/wiki/:slug',
 	array(
-		'controller' => 'Articles', 
+		'controller' => 'wiki',
+		'action' => 'view',
+		'objectType' => 'WikiArticle'
+	),
+	array(
+		'pass' => array('slug')
+	)
+);
+
+Router::connect('/articles', array(
+	'controller' => 'Articles',
+	'action' => 'index',
+	'objectType' => 'SiteArticle',
+),
+	array('named' => array('page' => 1))
+);
+Router::connect('/articles/:slug',
+	array(
+		'controller' => 'Articles',
+		'action' => 'view',
+		'objectType' => 'SiteArticle'
+	),
+	array('pass' => array('slug'))
+);
+Router::connect('/articles/page/:page', array(
+	'controller' => 'Articles',
+	'action' => 'index',
+	'objectType' => 'SiteArticle'
+),
+	array('named' => array('page' => '[\d]*'))
+);
+
+/*
+Router::connect('/articles/:slug',
+	array(
+		'controller' => 'articles',
 		'action' => 'view',
 		'objectType' => 'SiteArticle'
 	),
@@ -37,14 +71,39 @@ Router::connect('/articles/', array(
 	'controller' => 'Articles', 
 	'action' => 'index',
 	'objectType' => 'SiteArticle'
-)
-);
+));
 Router::connect('/articles', array(
 	'controller' => 'Articles', 
 	'action' => 'index',
 	'objectType' => 'SiteArticle'
-)
+));
+*/
+/*
+Router::connect('/gallery/:slug.html',
+	array(
+		'controller' => 'Articles',
+		'action' => 'view',
+		'objectType' => 'Gallery'
+	),
+	array(
+		'pass' => array('slug')
+	)
 );
+Router::connect('/gallery/page/:page', array(
+	'controller' => 'Articles',
+	'action' => 'index',
+	'objectType' => 'Gallery'
+));
+Router::connect('/gallery/', array(
+	'controller' => 'Articles',
+	'action' => 'index',
+	'objectType' => 'Gallery'
+));
+Router::connect('/gallery', array(
+	'controller' => 'Articles',
+	'action' => 'index',
+	'objectType' => 'Gallery'
+));
 */
 /*
 Router::connect('/news/:slug.html', 
@@ -73,7 +132,7 @@ Router::connect('/news', array(
 	'objectType' => 'News'
 ));
 */
-
+/*
 Router::connect('/articles', array(
 		'controller' => 'Articles', 
 		'action' => 'index',
@@ -96,7 +155,7 @@ Router::connect('/articles/page/:page', array(
 ),
 	array('named' => array('page' => '[\d]*'))
 );
-
+*/
 CakePlugin::routes();
 
 require CAKE.'Config'.DS.'routes.php';

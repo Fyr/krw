@@ -18,6 +18,10 @@ class AdminController extends AppController {
 				// array('label' => __('Work Experience'), 'href' => array('controller' => 'AdminContent', 'action' => 'index', 'WorkExp')),
 				array('label' => __('Articles'), 'href' => array('controller' => 'AdminContent', 'action' => 'index', 'SiteArticle')),
 			)),
+			'Wiki' => array('label' => __('Wiki'), 'href' => '', 'submenu' => array(
+				array('label' => __('Sections'), 'href' => array('controller' => 'AdminContent', 'action' => 'index', 'WikiSection')),
+				array('label' => __('Articles'), 'href' => array('controller' => 'AdminContent', 'action' => 'index', 'WikiArticle')),
+			)),
 			'Settings' => array('label' => __('Settings'), 'href' => array('controller' => 'AdminSettings', 'action' => 'index')),
 			/*
 			'Catalog' => array('label' => __('Catalog'), 'href' => '', 'submenu' => array(

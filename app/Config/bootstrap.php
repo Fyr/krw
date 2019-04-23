@@ -1,4 +1,6 @@
 <?php
+define('TEST_ENV', $_SERVER['SERVER_ADDR'] == '192.168.1.22');
+
 Configure::write('Dispatcher.filters', array(
 	'AssetDispatcher',
 	'CacheDispatcher'
@@ -18,27 +20,30 @@ CakeLog::config('error', array(
 // Configure::write('Exception.renderer', 'SiteExceptionRenderer');
 Configure::write('Config.language', 'rus');
 
-
-
+/*
 // Values from google recaptcha account
 define('RECAPTCHA_PUBLIC_KEY', '6Lezy-QSAAAAAJ_mJK5OTDYAvPEhU_l-EoBN7rxV');
 define('RECAPTCHA_PRIVATE_KEY', '6Lezy-QSAAAAACCM1hh6ceRr445OYU_D_uA79UFZ');
 
 Configure::write('Recaptcha.publicKey', RECAPTCHA_PUBLIC_KEY);
 Configure::write('Recaptcha.privateKey', RECAPTCHA_PRIVATE_KEY);
-
-Configure::write('domain', array(
-	'url' => 'krwiki.loc',
-	'title' => 'KRwiki.loc'
-));
+*/
+if (TEST_ENV) {
+	Configure::write('domain', array(
+		'url' => 'krwiki.loc',
+		'title' => 'KRwiki.loc'
+	));
+} else {
+	Configure::write('domain', array(
+		'url' => 'krwiki.net',
+		'title' => 'KRwiki.net'
+	));
+}
 
 define('AUTH_ERROR', __('Invalid username or password, try again'));
-define('TEST_ENV', $_SERVER['SERVER_ADDR'] == '192.168.1.22');
-
 define('EMAIL_ADMIN', 'fyr.work@gmail.com');
 define('EMAIL_ADMIN_CC', 'fyr.work@gmail.com');
 
-// define('PATH_FILES_UPLOAD', $_SERVER['DOCUMENT_ROOT'].'/files/');
 define('PATH_FILES_UPLOAD', WWW_ROOT.'files'.DS);
 
 CakePlugin::loadAll();

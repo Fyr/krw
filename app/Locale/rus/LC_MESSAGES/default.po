@@ -514,23 +514,5 @@ msgstr "Страница не найдена"
 msgid "Error!"
 msgstr "Ошибка!"
 
-msgid "Tech.stack"
-msgstr "Стек технологий"
-
-msgid "Portfolio"
-msgstr "Портфолио"
-
-msgid "Create Portfolio work"
-msgstr "Создать статью в Портфолио"
-
-msgid "Edit Portfolio work"
-msgstr "Редактировать статью в Портфолио"
-
-msgid "Work Experience"
-msgstr "Опыт работы"
-
-msgid "Create Portfolio work"
-msgstr "Создать статью в Портфолио"
-
-msgid "Edit Portfolio work"
-msgstr "Редактировать статью в Портфолио"
+msgid "Preview"
+msgstr "Предпросмотр"

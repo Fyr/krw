@@ -5,19 +5,25 @@ App::uses('SiteArticle', 'Model');
 App::uses('Portfolio', 'Model');
 App::uses('Media', 'Media.Model');
 App::uses('Media', 'View/Helper');
+App::uses('PHTime', 'Core.View/Helper');
 class ArticlesController extends AppController {
 	public $name = 'Articles';
 	public $uses = array('Media.Media', 'SiteArticle', 'Portfolio');
-	public $helpers = array('ObjectType', 'Media');
+	public $helpers = array('ObjectType', 'Media', 'Core.PHTime');
 	
-	const PER_PAGE = 2;
+	const PER_PAGE = 8;
 	
 	protected $objectType;
 
 	public function beforeFilter() {
-		$this->inProgress();
+		/*
+		if ($this->request->action !== 'view') {
+			$this->inProgress();
+			return false;
+		}
+		*/
 		// $this->objectType = 'SiteArticle';
-		// parent::beforeFilter();
+		parent::beforeFilter();
 	}
 	
 	public function beforeRender() {
@@ -35,17 +41,29 @@ class ArticlesController extends AppController {
 			'order' => $this->objectType.'.created DESC',
 			'page' => $this->request->param('page')
 		);
-		$this->set('aArticles', $this->paginate($this->objectType));
+		$aArticles = $this->paginate($this->objectType);
+		$this->set('aArticles', $aArticles);
 	}
 	
 	public function view($slug) {
+		if (is_numeric($slug)) {
+			$article = $this->{$this->objectType}->findById($slug);
+			if (!$article) {
+				$this->redirect404();
+				return false;
+			}
+			$this->redirect(array('controller' => 'articles', 'action' => 'view', $article[$this->objectType][$slug]));
+			return false;
+		}
 		$article = $this->{$this->objectType}->findBySlug($slug);
 		
 		if (!$article && !TEST_ENV) {
-			// return $this->redirect('/');
+			$this->inProgress();
+			return false;
 		}
 		$aMedia = $this->Media->getObjectList($this->objectType, $article[$this->objectType]['id']);
 		$this->set(compact('article', 'aMedia'));
 
+		$this->{$this->objectType}->viewed($article[$this->objectType]['id']);
 	}
 }

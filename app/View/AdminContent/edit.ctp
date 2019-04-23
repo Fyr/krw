@@ -1,13 +1,17 @@
 <div class="span8 offset2">
 <?
     $id = $this->request->data($objectType.'.id');
+    $slug = $this->request->data($objectType.'.slug');
     $title = $this->ObjectType->getTitle(($id) ? 'edit' : 'create', $objectType);
     
     $objectID = '';
-?>
-	<?=$this->element('admin_title', compact('title'))?>
-<?
+	echo $this->element('admin_title', compact('title'));
+
     echo $this->PHForm->create($objectType);
+    echo $this->Html->link(__('Preview').'<i class="icon icon-chevron-right"></i>',
+        array('controller' => 'articles', 'action' => 'view', $slug),
+        array('class' => 'btn btn-mini pull-right', 'escape' => false)
+    );
     echo $this->Form->hidden('Seo.id', array('value' => Hash::get($this->request->data, 'Seo.id')));
     $aTabs = array(
         'General' => $this->element('/AdminContent/admin_edit_'.$objectType),

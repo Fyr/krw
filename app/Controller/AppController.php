@@ -25,6 +25,10 @@ class AppController extends Controller {
     	$this->set('currUser', $user);
 		return Hash::get($user, 'active');
 	}
+
+	public function isAdmin() {
+		return AuthComponent::user('id') === 1;
+	}
 	
 	public function beforeFilter() {
 		parent::beforeFilter();
@@ -32,7 +36,7 @@ class AppController extends Controller {
 	}
 	
 	protected function beforeFilterLayout() {
-
+		$this->objectType = $this->getObjectType();
 	}
 	
 	public function beforeRender() {
@@ -43,7 +47,8 @@ class AppController extends Controller {
 		$this->set('pageTitle', $this->pageTitle);
 		$this->set('aBreadCrumbs', $this->aBreadCrumbs);
 		$this->set('seo', $this->seo);
-		
+
+		$this->loadModel('WikiSection');
 		$this->beforeRenderLayout();
 	}
 	
@@ -61,7 +66,6 @@ class AppController extends Controller {
 		$this->Session->setFlash($msg, 'default', array(), $type);
 	}
 
-	
 	protected function getObjectType() {
 		$objectType = $this->request->param('objectType');
 		return ($objectType) ? $objectType : 'SiteArticle';

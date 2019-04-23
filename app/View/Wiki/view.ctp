@@ -1,6 +1,6 @@
 <?
 	$this->ArticleVars->init($article, $url, $title, $teaser, $src, '150x');
-	echo $this->element('title', array('pageTitle' => $title, 'subtitle' => $article['SiteArticle']['subtitle']));
+	echo $this->element('title', array('pageTitle' => $title));
 ?>
 <div class="block">
 	<?=$this->ArticleVars->body($article)?>
