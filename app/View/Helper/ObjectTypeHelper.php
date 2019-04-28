@@ -11,6 +11,7 @@ class ObjectTypeHelper extends AppHelper {
                 'WikiSection' => __('Wiki Sections'),
                 'WikiArticle' => __('Wiki Articles'),
                 'User' => __('Users'),
+                'WorkLog' => __('Work Logs'),
             ),
             'create' => array(
                 'Article' => __('Create Article'),
@@ -18,6 +19,7 @@ class ObjectTypeHelper extends AppHelper {
                 'WikiSection' => __('Create Wiki Section'),
                 'WikiArticle' => __('Create Wiki Article'),
                 'User' => __('Create User'),
+                'WorkLog' => __('Create Work Log'),
             ),
             'edit' => array(
                 'Article' => __('Edit Article'),
@@ -25,6 +27,7 @@ class ObjectTypeHelper extends AppHelper {
                 'WikiSection' => __('Edit Wiki Section'),
                 'WikiArticle' => __('Edit Wiki Article'),
                 'User' => __('Edit User'),
+                'WorkLog' => __('Edit Work Log'),
             ),
             'view' => array(
             	'Article' => __('View Article'),

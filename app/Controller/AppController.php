@@ -29,6 +29,27 @@ class AppController extends Controller {
 	public function isAdmin() {
 		return AuthComponent::user('id') === 1;
 	}
+
+	public function loadModel($modelClass = null, $id = null) {
+		if ($modelClass === null) {
+			$modelClass = $this->modelClass;
+		}
+
+		$this->uses = ($this->uses) ? (array)$this->uses : array();
+		if (!in_array($modelClass, $this->uses, true)) {
+			$this->uses[] = $modelClass;
+		}
+
+		list($plugin, $modelClass) = pluginSplit($modelClass, true);
+
+		$this->{$modelClass} = ClassRegistry::init(array(
+			'class' => $plugin . $modelClass, 'alias' => $modelClass, 'id' => $id
+		));
+		if (!$this->{$modelClass}) {
+			throw new MissingModelException($modelClass);
+		}
+		return $this->{$modelClass};
+	}
 	
 	public function beforeFilter() {
 		parent::beforeFilter();
@@ -48,12 +69,15 @@ class AppController extends Controller {
 		$this->set('aBreadCrumbs', $this->aBreadCrumbs);
 		$this->set('seo', $this->seo);
 
-		$this->loadModel('WikiSection');
 		$this->beforeRenderLayout();
 	}
 	
 	protected function beforeRenderLayout() {
-
+		$this->WikiSection = $this->loadModel('WikiSection');
+		$aWikiSections = $this->WikiSection->find('all', array(
+			'conditions' => array('published' => 1),
+			'order' => array('sorting' => 'ASC')
+		));
 	}
 	
 	/**

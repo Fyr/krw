@@ -1,9 +1,10 @@
 <?php
 App::uses('AdminController', 'Controller');
+App::uses('WorkLog', 'Model');
 class AdminContentController extends AdminController {
     public $name = 'AdminContent';
     public $components = array('Article.PCArticle');
-    public $uses = array('Article.Article', 'CategoryArticle', 'SubcategoryArticle', 'CarType');
+    public $uses = array('Article.Article', 'WorkLog');
     public $helpers = array('ObjectType');
     
     public function index($objectType, $objectID = '') {
@@ -20,6 +21,9 @@ class AdminContentController extends AdminController {
 			),
 			'WikiArticle' => array(
 				'fields' => array('created', 'modified', 'title', 'slug', 'published')
+			),
+			'WorkLog' => array(
+				'fields' => array('created', 'work_type', 'object_type', 'object_id', 'comment')
 			)
         );
         
@@ -38,9 +42,16 @@ class AdminContentController extends AdminController {
 			// $this->request->data('Article.object_id', $objectID);
 			$this->request->data('Seo.object_type', $objectType);
 		}
-		$this->PCArticle->setModel($objectType)->edit(&$id, &$lSaved);
+
+		$this->PCArticle->setModel($objectType);
+		$old_article = $this->PCArticle->model()->findById($id);
+		$this->PCArticle->edit(&$id, &$lSaved);
 
 		if ($lSaved) {
+			$old_article = Hash::get($old_article, $objectType);
+			$new_article = hash::get($this->PCArticle->model()->findById($id), $objectType);
+			$this->WorkLog->saveLog($objectType, $old_article, $new_article);
+
 			$indexRoute = array('action' => 'index', $objectType, $objectID);
 			$editRoute = array('action' => 'edit', $id, $objectType, $objectID);
 			return $this->redirect(($this->request->data('apply')) ? $indexRoute : $editRoute);

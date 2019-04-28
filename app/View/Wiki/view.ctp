@@ -2,7 +2,7 @@
 	$this->ArticleVars->init($article, $url, $title, $teaser, $src, '150x');
 	echo $this->element('title', array('pageTitle' => $title));
 ?>
-<div class="block">
+<div class="block wiki-article">
 	<?=$this->ArticleVars->body($article)?>
 </div>
 <?
