@@ -3,3 +3,9 @@ p {
 	line-height: 1.2em;
 }
 
+h3 {margin: 15px 0 0 0; font-size: 1.1em}
+h4 {margin: 15px 0 0 0; font-size: 1.1em}
+
+img.wiki-link  {
+    width: 50px;
+}

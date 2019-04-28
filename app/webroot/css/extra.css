@@ -10,6 +10,7 @@ h1 {
     padding-bottom: 1rem;
     font-size: 3rem;
 }
+
 .categoriesList {
     font-size: 1.2rem;
 }
@@ -42,6 +43,11 @@ h1 {
     padding-top: 10px;
     padding-bottom: 10px;
 }
+h3, .textBlock h3 {
+    margin: 15px 0 5px 0;
+    font-size: 1.2em;
+    padding: 0;
+}
 /*
 .textBlock ul {
     margin: 0 0 0 10px;
@@ -69,4 +75,28 @@ td, th {
 }
 .textBlock table td img {
     margin-bottom: 0;
+}
+
+img.wiki-link  {
+    width: 50px;
+}
+
+a.wiki-link {
+    font-family: Tahoma;
+}
+
+.wiki-article a[name], .wiki-article a[name]:hover {
+    color: #8d120d;
+    text-decoration: none;
+}
+.wiki-article p {
+    padding-bottom: 0.7em;
+}
+
+.textBlock .wiki-article ul {
+    margin-top: -5px;
+}
+
+.textBlock .wiki-img-R {
+    margin: 0 0 10px 10px;
 }
