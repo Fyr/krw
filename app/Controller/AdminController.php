@@ -14,9 +14,8 @@ class AdminController extends AppController {
 		$this->aNavBar = array(
 			'Content' => array('label' => __('Content'), 'href' => '', 'submenu' => array(
 				array('label' => __('Static pages'), 'href' => array('controller' => 'AdminContent', 'action' => 'index', 'Page')),
-				// array('label' => __('Portfolio'), 'href' => array('controller' => 'AdminContent', 'action' => 'index', 'Portfolio')),
-				// array('label' => __('Work Experience'), 'href' => array('controller' => 'AdminContent', 'action' => 'index', 'WorkExp')),
 				array('label' => __('Articles'), 'href' => array('controller' => 'AdminContent', 'action' => 'index', 'SiteArticle')),
+				array('label' => __('Work Logs'), 'href' => array('controller' => 'AdminContent', 'action' => 'index', 'WorkLog')),
 			)),
 			'Wiki' => array('label' => __('Wiki'), 'href' => '', 'submenu' => array(
 				array('label' => __('Sections'), 'href' => array('controller' => 'AdminContent', 'action' => 'index', 'WikiSection')),

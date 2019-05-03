@@ -25,7 +25,8 @@ class SiteRouter extends Router {
 			$url = array(
 				'controller' => 'wiki',
 				'action' => 'view',
-				$article[$objectType]['slug']
+				'objectType' => 'WikiArticle',
+				'slug' => $article[$objectType]['slug']
 			);
 		} else {
 			$url = array(

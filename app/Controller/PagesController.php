@@ -2,17 +2,15 @@
 App::uses('AppController', 'Controller');
 App::uses('AppModel', 'Model');
 App::uses('Page', 'Model');
-App::uses('WorkExp', 'Model');
-App::uses('SkillsCategory', 'Model');
-App::uses('Skill', 'Model');
-App::uses('Portfolio', 'Model');
+App::uses('WorkLog', 'Model');
 class PagesController extends AppController {
 	public $name = 'Pages';
-	public $uses = array('Page', 'WorkExp', 'Skill', 'SkillsCategory', 'Portfolio');
+	public $uses = array('Page', 'WorkLog');
 	public $helpers = array('ArticleVars', 'Media.PHMedia', 'Core.PHTime');
 
 	public function home() {
 		$this->set('article', $this->Page->findBySlug('home'));
+		$this->set('aLogs', $this->WorkLog->getLogs());
 	}
 
 	public function inprogress() {

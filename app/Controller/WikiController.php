@@ -37,6 +37,12 @@ class WikiController extends AppController {
 			$this->inProgress();
 			return false;
 		}
+		/*
+		if (!$article['WikiArticle']['published']) {
+			$this->inProgress();
+			return false;
+		}
+		*/
 		$aMedia = $this->Media->getObjectList($this->objectType, $article[$this->objectType]['id']);
 		$this->set(compact('article', 'aMedia'));
 	}

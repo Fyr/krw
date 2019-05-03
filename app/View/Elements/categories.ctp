@@ -18,6 +18,7 @@
     <ul class="categoriesList">
         <li><b>KingsRoad Wiki</b></li>
 <?
+/*
     foreach($aCategories as $cat_title => $menu) {
 ?>
         <li>
@@ -35,21 +36,22 @@
         </li>
 <?
     }
+*/
 ?>
-        <li>
+        <!--li>
             <a href="/pages/inprogress">Деревня</a>
         </li>
         <li>
             <a href="/pages/inprogress">Драконы</a>
+        </li-->
+        <li>
+            <a href="<?=SiteRouter::url(array('WikiArticle' => array('slug' => 'jewels')))?>">Драгоценные камни</a>
         </li>
         <li>
-            <a href="/pages/inprogress">Камни и призмы</a>
+            <a href="<?=SiteRouter::url(array('WikiArticle' => array('slug' => 'evo-materials-stones')))?>">Материалы развития камней</a>
         </li>
-        <li>
-            <a href="/pages/inprogress">Материалы развития</a>
-        </li>
-        <li>
+        <!--li>
             <a href="/pages/inprogress">Игровая валюта</a>
-        </li>
+        </li-->
     </ul>
 </div>
