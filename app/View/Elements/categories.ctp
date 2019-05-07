@@ -44,14 +44,14 @@
         <li>
             <a href="/pages/inprogress">Драконы</a>
         </li-->
+<?
+    foreach($aWikiSections as $slug => $title) {
+?>
         <li>
-            <a href="<?=SiteRouter::url(array('WikiArticle' => array('slug' => 'jewels')))?>">Драгоценные камни</a>
+            <?=$this->Html->link($title, SiteRouter::url(array('WikiArticle' => compact('slug'))))?>
         </li>
-        <li>
-            <a href="<?=SiteRouter::url(array('WikiArticle' => array('slug' => 'evo-materials-stones')))?>">Материалы развития камней</a>
-        </li>
-        <!--li>
-            <a href="/pages/inprogress">Игровая валюта</a>
-        </li-->
+<?
+    }
+?>
     </ul>
 </div>

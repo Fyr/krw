@@ -73,11 +73,19 @@ class AppController extends Controller {
 	}
 	
 	protected function beforeRenderLayout() {
+		/*
 		$this->WikiSection = $this->loadModel('WikiSection');
 		$aWikiSections = $this->WikiSection->find('all', array(
 			'conditions' => array('published' => 1),
 			'order' => array('sorting' => 'ASC')
 		));
+		*/
+		$aWikiSections = array(
+			'gaming-currency' => 'Игровая валюта',
+			'jewels' => 'Драгоценные камни',
+			'evo-materials-stones' => 'Материалы развития камней'
+		);
+		$this->set('aWikiSections', $aWikiSections);
 	}
 	
 	/**
