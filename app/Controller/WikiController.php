@@ -18,7 +18,6 @@ class WikiController extends AppController {
 	}
 
 	public function index() {
-		$this->inProgress();
 	}
 
 	public function view($slug) {

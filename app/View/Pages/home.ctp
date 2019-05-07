@@ -1,4 +1,4 @@
-<h1><?=$article['Page']['title']?></h1>
+<?=$this->element('title', array('pageTitle' => $article['Page']['title']))?>
 <?=$this->ArticleVars->body($article)?>
 <hr />
 <h2>Последние обновления:</h2>
