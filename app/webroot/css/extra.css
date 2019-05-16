@@ -100,3 +100,7 @@ a.wiki-link {
 .textBlock .wiki-img-R {
     margin: 0 0 10px 10px;
 }
+
+.textBlock .wiki-stats tr:nth-child(1) > td > strong, .textBlock .wiki-stats tr:nth-child(2) > td > strong {
+    font-size: 0.9em;
+}
