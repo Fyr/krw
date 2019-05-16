@@ -27,7 +27,7 @@ class WorkLog extends AppModel {
 		}
 	}
 
-	public function getLogs() {
+	public function getLogs($count = 0) {
 		$fields = array('id', 'DATE(created) AS date_created', 'work_type', 'object_type', 'object_id', 'comment');
 		$order = array('date_created' => 'desc', 'object_type' => 'desc', 'object_id' => 'asc', 'work_type' => 'asc', 'id' => 'desc');
 		$aLogs = $this->find('all', compact('fields', 'order'));
@@ -66,8 +66,13 @@ class WorkLog extends AppModel {
 
 		// extract logs by priority
 		$aLogs = array();
+		$_count = 0;
 		foreach($aSorted as $created => $_object_types) {
 			if (!isset($aLogs[$created])) {
+				$_count++;
+				if ($count && $_count > $count) {
+					break;
+				}
 				$aLogs[$created] = array();
 			}
 

@@ -10,7 +10,9 @@ class PagesController extends AppController {
 
 	public function home() {
 		$this->set('article', $this->Page->findBySlug('home'));
-		$this->set('aLogs', $this->WorkLog->getLogs());
+
+		$aWorkLogs = $this->WorkLog->getLogs(3);
+		$this->set('aLogs', $aWorkLogs);
 	}
 
 	public function inprogress() {
@@ -30,5 +32,10 @@ class PagesController extends AppController {
 		// $this->response->header('HTTP/1.0 404 Not Found');
 		$this->response->statusCode(404);
 		$this->response->send();
+	}
+
+	public function updates() {
+		$aWorkLogs = $this->WorkLog->getLogs();
+		$this->set('aLogs', $aWorkLogs);
 	}
 }
