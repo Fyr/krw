@@ -10,6 +10,7 @@ class PagesController extends AppController {
 
 	public function home() {
 		$this->set('article', $this->Page->findBySlug('home'));
+		$this->set('article2', $this->Page->findBySlug('need-help'));
 
 		$aWorkLogs = $this->WorkLog->getLogs(3);
 		$this->set('aLogs', $aWorkLogs);
