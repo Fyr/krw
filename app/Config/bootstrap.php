@@ -40,6 +40,12 @@ if (TEST_ENV) {
 	));
 }
 
+Configure::write('aWikiSections', array(
+	'gaming-currency' => 'Игровая валюта',
+	'jewels' => 'Драгоценные камни',
+	'evo-materials-stones' => 'Материалы развития камней'
+));
+
 define('AUTH_ERROR', __('Invalid username or password, try again'));
 define('EMAIL_ADMIN', 'fyr.work@gmail.com');
 define('EMAIL_ADMIN_CC', 'fyr.work@gmail.com');

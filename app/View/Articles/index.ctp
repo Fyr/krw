@@ -20,7 +20,7 @@
 ?>
 	<p><?=$teaser?></p>
 	<div>
-		<b><?=$this->PHTime->niceShort($article['SiteArticle']['created'])?></b>
+		<b><?=$this->PHTime->niceShort($article[$this->ArticleVars->getObjectType($article)]['created'])?></b>
 	</div>
 	<?=$this->element('more', compact('url'))?>
 	<hr />

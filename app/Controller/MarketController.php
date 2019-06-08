@@ -11,6 +11,7 @@ class MarketController extends AppController {
 	public function beforeFilter() {
 		$this->inProgress();
 	}
+
 	/*
 	const PER_PAGE = 100;
 	

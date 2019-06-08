@@ -14,13 +14,17 @@ class AdminController extends AppController {
 		$this->aNavBar = array(
 			'Content' => array('label' => __('Content'), 'href' => '', 'submenu' => array(
 				array('label' => __('Static pages'), 'href' => array('controller' => 'AdminContent', 'action' => 'index', 'Page')),
-				array('label' => __('Articles'), 'href' => array('controller' => 'AdminContent', 'action' => 'index', 'SiteArticle')),
+				array('label' => __('Site Articles'), 'href' => array('controller' => 'AdminContent', 'action' => 'index', 'SiteArticle')),
+				array('label' => __('Wiki'), 'href' => array('controller' => 'AdminContent', 'action' => 'index', 'WikiArticle')),
+				array('label' => __('Gallery'), 'href' => array('controller' => 'AdminContent', 'action' => 'index', 'GalleryArticle')),
 				array('label' => __('Work Logs'), 'href' => array('controller' => 'AdminContent', 'action' => 'index', 'WorkLog')),
 			)),
+			/*
 			'Wiki' => array('label' => __('Wiki'), 'href' => '', 'submenu' => array(
 				array('label' => __('Sections'), 'href' => array('controller' => 'AdminContent', 'action' => 'index', 'WikiSection')),
-				array('label' => __('Articles'), 'href' => array('controller' => 'AdminContent', 'action' => 'index', 'WikiArticle')),
+
 			)),
+			*/
 			'Settings' => array('label' => __('Settings'), 'href' => array('controller' => 'AdminSettings', 'action' => 'index')),
 			/*
 			'Catalog' => array('label' => __('Catalog'), 'href' => '', 'submenu' => array(

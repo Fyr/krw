@@ -9,13 +9,7 @@ class SiteRouter extends Router {
 	
 	static public function url($article) {
 		$objectType = self::getObjectType($article);
-		if ($objectType == 'Portfolio') {
-			$url = array(
-				'controller' => 'portfolio',
-				'action' => 'view',
-				$article['Portfolio']['slug']
-			);
-		} elseif ($objectType == 'Page') {
+		if ($objectType == 'Page') {
 			$url = array(
 				'controller' => 'pages',
 				'action' => 'view',
@@ -26,6 +20,13 @@ class SiteRouter extends Router {
 				'controller' => 'wiki',
 				'action' => 'view',
 				'objectType' => 'WikiArticle',
+				'slug' => $article[$objectType]['slug']
+			);
+		} elseif ($objectType == 'GalleryArticle') {
+			$url = array(
+				'controller' => 'Gallery',
+				'action' => 'view',
+				'objectType' => $objectType,
 				'slug' => $article[$objectType]['slug']
 			);
 		} else {

@@ -25,7 +25,11 @@ class Media extends AppModel {
     		}
     		if ($row['id']) {
 	    		if ($row['media_type'] == 'image') {
-	            	$_row[$this->alias]['url_img'] = $this->PHMedia->getImageUrl($row['object_type'], $row['id'], 'noresize', $row['file'].$row['ext'].'.png');
+					$file = $row['file'].$row['ext'];
+					if ($row['ext'] !== '.png') {
+						$file.= '.png';
+					}
+	            	$_row[$this->alias]['url_img'] = $this->PHMedia->getImageUrl($row['object_type'], $row['id'], 'noresize', $file);
 	    		}
 	    		$_row[$this->alias]['url_download'] = $this->PHMedia->getRawUrl($row['object_type'], $row['id'], $row['file'].$row['ext']);
     		} else  {
@@ -78,6 +82,9 @@ class Media extends AppModel {
      */
     public function uploadMedia($data) {
     	$this->clear();
+		if (isset($data['orig_fname']) && preg_match('/^\d\.png/', $data['orig_fname'])) {
+			$data['orig_fname'] = '0'.$data['orig_fname'];
+		}
 		$this->save($data);
 		$id = $this->id;
 		

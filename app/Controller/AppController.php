@@ -80,12 +80,7 @@ class AppController extends Controller {
 			'order' => array('sorting' => 'ASC')
 		));
 		*/
-		$aWikiSections = array(
-			'gaming-currency' => 'Игровая валюта',
-			'jewels' => 'Драгоценные камни',
-			'evo-materials-stones' => 'Материалы развития камней'
-		);
-		$this->set('aWikiSections', $aWikiSections);
+		$this->set('aWikiSections', Configure::read('aWikiSections'));
 	}
 	
 	/**

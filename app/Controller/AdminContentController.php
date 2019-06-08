@@ -22,6 +22,9 @@ class AdminContentController extends AdminController {
 			'WikiArticle' => array(
 				'fields' => array('created', 'modified', 'title', 'slug', 'published')
 			),
+			'GalleryArticle' => array(
+				'fields' => array('created', 'modified', 'title', 'slug', 'teaser', 'published')
+			),
 			'WorkLog' => array(
 				'fields' => array('created', 'work_type', 'object_type', 'object_id', 'comment')
 			)
