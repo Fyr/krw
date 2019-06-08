@@ -2,7 +2,7 @@
     $aMenu = array(
         array('title' => 'Wiki', 'subTitle' => 'энциклопедия<br />KingsRoad', 'url' => array('controller' => 'wiki', 'action' => 'index')),
         array('title' => 'Игрокам', 'subTitle' => 'KingsRoad гайды<br />статьи, обзоры', 'url' => array('controller' => 'articles', 'action' => 'index')),
-        array('title' => 'Биржа', 'subTitle' => 'продать / купить<br />аккаунт безопасно', 'url' => array('controller' => 'market', 'action' => 'index')),
+        array('title' => 'Биржа', 'subTitle' => 'продать / купить<br />аккаунт безопасно', 'url' => array('controller' => 'pages', 'action' => 'view', 'market')),
         array('title' => 'Галерея', 'subTitle' => 'медиа, пиксель-арт,<br />скриншоты', 'url' => array('controller' => 'gallery', 'action' => 'index'))
     );
 ?>
