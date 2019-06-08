@@ -11,7 +11,7 @@ class WorkLog extends AppModel {
 	public function saveLog($object_type, $old_article, $new_article) {
 		$work_type = 0;
 		$old_article = ($old_article) ? $old_article : array();
-		if (in_array($object_type, array('SiteArticle', 'WikiArticle'))) {
+		if (in_array($object_type, array('SiteArticle', 'WikiArticle', 'GalleryArticle'))) {
 
 			if (!Hash::get($old_article, 'published') && Hash::get($new_article, 'published')) {
 				$work_type = WorkLog::PUBLISHED;
