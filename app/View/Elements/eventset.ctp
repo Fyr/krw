@@ -17,7 +17,7 @@
     }
 ?>
 </div>
-<img src="<?=$aSrc3D[0]?>" alt="" style="width: 100%"/>
+<img class="img3D" src="<?=$aSrc3D[0]?>" alt="" style="width: 100%"/>
 <?
     foreach($aImages as $media) {
 ?>

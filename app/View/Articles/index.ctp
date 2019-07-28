@@ -3,7 +3,7 @@
 	foreach($aArticles as $i => $article) {
 		$this->ArticleVars->init($article, $url, $title, $teaser, $src, '150x');
 ?>
-
+<div>
 	<h2>
 		<a href="<?=$url?>"><?=$title?></a>
 	</h2>
@@ -23,7 +23,8 @@
 		<b><?=$this->PHTime->niceShort($article[$this->ArticleVars->getObjectType($article)]['created'])?></b>
 	</div>
 	<?=$this->element('more', compact('url'))?>
-	<hr />
+</div>
+<hr  style="clear: both" />
 <?
 	}
 	echo $this->element('paginate');
