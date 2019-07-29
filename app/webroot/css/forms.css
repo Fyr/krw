@@ -1,0 +1,49 @@
+.mandatory {
+    color: #8d120d;
+    font-weight: bold;
+}
+.error-message {
+    font-size: 0.7em;
+    color: #f00;
+    font-weight: bold;
+    margin: 0 0 10px 22px;
+}
+form {
+    font-size: 1.2em;
+}
+form h2 {
+    color: #005d78;
+}
+form div.input {
+    margin: 5px 0;
+}
+form label {
+    display: inline-block;
+    width: 200px;
+    margin: 0 10px;
+}
+form input[type="text"], form input[type="password"], form input[type="email"] {
+    width: 200px;
+    padding: 3px 5px;
+    font-size: 1.1em;
+}
+form div.input.checkbox label {
+    margin: 5px 10px;
+    width: auto;
+}
+form input[type="checkbox"] {
+    transform: scale(1.5);
+    margin-left: 15px;
+}
+form input[type="submit"], form input[type="button"] {
+    background: #005d78;
+    color: #fff;
+    padding: 6px 12px;
+    font-size: 1.2em;
+    font-family: 'Moyenage';
+    border-radius: 10px;
+    cursor: pointer;
+}
+form input[type="submit"][disabled] {
+    opacity: 0.5;
+}

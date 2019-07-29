@@ -7,6 +7,7 @@ class RouterController extends AppController {
 	var $autoRender = false;
 	
 	public function beforeFilter() {
+		$this->Auth->allow('index');
 	}
 	
 	public function beforeRender() {

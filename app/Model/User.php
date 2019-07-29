@@ -9,12 +9,12 @@ class User extends AppModel {
 				'message' => 'Field is mandatory',
 			),
 			'checkNameLen' => array(
-				'rule' => array('between', 5, 15),
-				'message' => 'The name must be between 5 and 15 characters'
+				'rule' => array('between', 3, 15),
+				'message' => 'User name must be between 3 and 15 characters'
 			),
 			'checkIsUnique' => array(
 				'rule' => 'isUnique',
-				'message' => 'That name has already been taken'
+				'message' => 'This name is already used'
 			)
 		),
 		'email' => array(
@@ -24,7 +24,7 @@ class User extends AppModel {
 			),
 			'checkIsUnique' => array(
 				'rule' => 'isUnique',
-				'message' => 'This email has already been used'
+				'message' => 'This email is already used'
 			)
 		),
 		'password' => array(
@@ -33,15 +33,15 @@ class User extends AppModel {
 				'message' => 'Field is mandatory'
 			),
 			'checkPswLen' => array(
-				'rule' => array('between', 5, 15),
-				'message' => 'The password must be between 5 and 15 characters'
+				'rule' => array('between', 4, 20),
+				'message' => 'The password must be between 4 and 20 characters'
 			),
 			'checkMatchPassword' => array(
 				'rule' => array('matchPassword'),
 				'message' => 'Your password and its confirmation do not match',
 			)
 		),
-		'password_confirm' => array(
+		'confirm_password' => array(
 			'notempty' => array(
 				'rule' => array('notEmpty'),
 				'message' => 'Field is mandatory',
@@ -50,7 +50,7 @@ class User extends AppModel {
 	);
 
 	public function matchPassword($data){
-		if($data['password'] == $this->data['User']['password_confirm']){
+		if($data['password'] == $this->data['User']['confirm_password']){
 			return true;
 		}
 		$this->invalidate('password_confirm', 'Your password and its confirmation do not match');
@@ -61,7 +61,7 @@ class User extends AppModel {
 		if (Hash::get($options, 'validate')) {
 			if (!Hash::get($this->data, 'User.password')) {
 				$this->validator()->remove('password');
-				$this->validator()->remove('password_confirm');
+				$this->validator()->remove('confirm_password');
 			}
 		}
 	}

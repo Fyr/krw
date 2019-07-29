@@ -41,42 +41,7 @@
 <body>
 	<div class="mobileWrapper">
 		<div class="wrapper mainContent">
-			<div class="header">
-				<ul class="smallMenu menu">
-					<li><a href="/"><?=__('Home')?></a></li>
-					<li><a href="<?=$this->Html->url(array('controller' => 'pages', 'action' => 'view', 'about'))?>"><?=__('About')?></a></li>
-					<li><a href="mailto:fyr@tut.by?subject=<?=Configure::read('domain.title')?>%20contacts"><?=__('Contacts')?></a></li>
-				</ul>
-				<ul class="smallMenu">
-<?
-	if ($currUser) {
-?>
-					<li class="menu">Welcome, <a href="<?=$this->Html->url(array('controller' => 'user', 'action' => 'dashboard'))?>"><?=$currUser['username']?></a></li>
-					<li class="menu"><a href="<?=$this->Html->url(array('controller' => 'user', 'action' => 'logout'))?>"><?=__('Log out')?></a></li>
-<?
-	} else {
-?>
-					<li class="menu"><a href="<?=$this->Html->url(array('controller' => 'user', 'action' => 'register'))?>"><?=__('Register')?></a></li>
-					<li class="menu"><a href="<?=$this->Html->url(array('controller' => 'user', 'action' => 'login'))?>"><?=__('Log in')?></a></li>
-<?
-	}
-	$class = ' first';
-	foreach(Configure::read('Config.langs') as $code => $_lang) {
-		$class.= ($code === $lang) ? ' active' : '';
-?>
-					<li class="languages<?=$class?>"><a href="javascript:;" onclick="setLang('<?=$code?>')"><?=$_lang?></a></li>
-<?
-		$class = '';
-	}
-?>
 
-				</ul>
-			</div>
-	
-			<div class="slider">
-				<div class="item" style="background-image: url('/img/temp/promo.png')"></div>
-			</div>
-	
 			<div class="mobileContainer">
 				<div class="mobileMenuButton">Menu</div>
 				<div class="logoMenu" data-sticky data-sticky-wrap>
@@ -88,14 +53,21 @@
 					</div>
 				</div>
 			</div>
-
+			<div class="header">
+				<ul class="smallMenu menu">
+					<li><a href="<?=$this->Html->url(array('controller' => 'user', 'action' => 'dashboard'))?>"><?=__('Dashboard')?></a></li>
+					<li><a href="<?=$this->Html->url(array('controller' => 'user', 'action' => 'account'))?>"><?=__('Account')?></a></li>
+					<li><a href="<?=$this->Html->url(array('controller' => 'user', 'action' => 'profile'))?>"><?=__('Game profile')?></a></li>
+					<li><a href="<?=$this->Html->url(array('controller' => 'user', 'action' => 'snapshots'))?>"><?=__('Snapshots')?></a></li>
+					<li><a href="<?=$this->Html->url(array('controller' => 'user', 'action' => 'snapshots'))?>"><?=__('Guild stats')?></a></li>
+				</ul>
+				<ul class="smallMenu">
+					<li class="menu">Welcome, <a href="<?=$this->Html->url(array('controller' => 'user', 'action' => 'dashboard'))?>"><?=$currUser['username']?></a></li>
+					<li class="menu"><a href="<?=$this->Html->url(array('controller' => 'user', 'action' => 'logout'))?>"><?=__('Log out')?></a></li>
+				</ul>
+			</div>
+	
 			<div class="content">
-				<div class="sidebar">
-					<?=$this->element('categories')?>
-					<div class="subSection">
-						<?=$this->element('sidebar')?>
-					</div>
-				</div>
 				<div class="textBlock">
 					<div class="block">
 						<?=$this->fetch('content')?>

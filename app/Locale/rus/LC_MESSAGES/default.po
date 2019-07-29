@@ -167,7 +167,7 @@ msgid "Delete checked records"
 msgstr "Удалить помеченные записи"
 
 msgid "Dashboard"
-msgstr "Главная"
+msgstr "Доска"
 
 msgid "User name"
 msgstr "Имя пользователя"
@@ -355,8 +355,8 @@ msgstr "Имя должно быть от 5 до 15 символов"
 msgid "That name has already been taken"
 msgstr "Такое имя уже существует"
 
-msgid "The password must be between 5 and 15 characters"
-msgstr "Пароль должен быть от 5 до 15 символов"
+msgid "The password must be between 4 and 20 characters"
+msgstr "Пароль должен быть от 4 до 20 символов"
 
 msgid "Your password and its confirmation do not match"
 msgstr "Пароль и подтверждение пароля не совпадают"
@@ -561,3 +561,12 @@ msgstr "Разработка сайта"
 
 msgid "Disclaimer"
 msgstr "Отказ от ответственности"
+
+msgid "Enter your account"
+msgstr "Вход в личный кабинет"
+
+msgid "This name is already used"
+msgstr "Это имя уже занято"
+
+msgid "This email is already used"
+msgstr "Этот email уже занят"

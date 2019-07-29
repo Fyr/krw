@@ -3,8 +3,18 @@ App::uses('Controller', 'Controller');
 App::uses('AppModel', 'Model');
 
 class AppController extends Controller {
+	public $components = array(
+		'Auth' => array(
+			'authorize'      => array('Controller'),
+			'loginAction'    => array('plugin' => '', 'controller' => 'user', 'action' => 'login'),
+			'loginRedirect'  => array('plugin' => '', 'controller' => 'user', 'action' => 'dashboard'),
+			'ajaxLogin' => 'Core.ajax_auth_failed',
+			'logoutRedirect' => '/',
+			'authError'      => 'You must sign in to access that page'
+		),
+	);
 	public $paginate;
-	public $aNavBar = array(), $aBottomLinks = array(), $currMenu = '', $currLink = '';
+	public $aNavBar = array(), $aBottomLinks = array(), $currMenu = '', $currLink = '', $currUser;
 	public $pageTitle = '', $aBreadCrumbs = array(), $seo = array();
 	
 	public function __construct($request = null, $response = null) {
@@ -47,6 +57,7 @@ class AppController extends Controller {
 	
 	public function isAuthorized($user) {
 		$this->set('currUser', $user);
+		fdebug($user);
 		return Hash::get($user, 'active');
 	}
 
@@ -82,7 +93,11 @@ class AppController extends Controller {
 	
 	protected function beforeFilterLayout() {
 		$this->objectType = $this->getObjectType();
-		// $this->Auth->allow(array('home', 'index', 'view', 'login', 'register'));
+		$this->Auth->allow(array('home', 'index', 'view', 'login', 'register'));
+		$this->currUser = array();
+		if ($this->Auth->loggedIn()) {
+			$this->_refreshUser();
+		}
 	}
 	
 	public function beforeRender() {
@@ -94,6 +109,7 @@ class AppController extends Controller {
 		$this->set('aBreadCrumbs', $this->aBreadCrumbs);
 		$this->set('seo', $this->seo);
 		$this->set('lang', Configure::read('Config.language'));
+		$this->set('currUser', $this->currUser);
 
 		$this->beforeRenderLayout();
 	}
@@ -106,6 +122,7 @@ class AppController extends Controller {
 			'order' => array('sorting' => 'ASC')
 		));
 		*/
+
 		Configure::write('aWikiSections', array(
 			'gaming-currency' => __('Gaming Currency'),
 			'jewels' => __('Jewels'),
@@ -137,4 +154,15 @@ class AppController extends Controller {
 	public function inProgress() {
 		$this->redirect(array('controller' => 'pages', 'action' => 'inprogress'));
 	}
+
+	protected function _refreshUser($lForce = false) {
+		if ($lForce) {
+			$this->loadModel('User');
+			$user = $this->User->findById($this->currUser['id']);
+			$this->Auth->login($user['User']);
+		}
+
+		$this->currUser = AuthComponent::user();
+	}
+
 }

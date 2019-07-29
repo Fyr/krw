@@ -26,36 +26,21 @@ class AdminController extends AppController {
 			)),
 			*/
 			'Settings' => array('label' => __('Settings'), 'href' => array('controller' => 'AdminSettings', 'action' => 'index')),
-			/*
-			'Catalog' => array('label' => __('Catalog'), 'href' => '', 'submenu' => array(
-				array('label' => __('Categories'), 'href' => array('controller' => 'AdminContent', 'action' => 'index', 'CategoryProduct')),
-				array('label' => __('Products'), 'href' => array('controller' => 'AdminContent', 'action' => 'index', 'Product')),
-			)),
-			*/
-			/*[
-			'Products' => array('label' => __('Products'), 'href' => '', 'submenu' => array(
-				'Category' => array('label' => __('Categories'), 'href' => array('controller' => 'AdminContent', 'action' => 'index', 'Category')),
-				'Brands' => array('label' => __('Brands'), 'href' => array('controller' => 'AdminContent', 'action' => 'index', 'Brand')),
-				'Forms' => array('label' => __('Tech.params'), 'href' => array('controller' => 'AdminForms', 'action' => 'index')),
-				'Products' => array('label' => __('Products'), 'href' => array('controller' => 'AdminProducts', 'action' => 'index')),
-			)),
-			
-			'Users' => array('label' => __('Users'), 'href' => array('controller' => 'AdminUsers', 'action' => 'index')),
-			// 'slider' => array('label' => __('Slider'), 'href' => array('controller' => 'AdminSlider', 'action' => 'index')),
-			'Upload' => array('label' => __('Uploadings'), 'href' => '', 'submenu' => array(
-				array('label' => __('Upload counters'), 'href' => array('controller' => 'AdminUploadCsv', 'action' => 'index')),
-				array('label' => __('Upload new products'), 'href' => array('controller' => 'AdminUploadCsv', 'action' => 'uploadNewProducts')),
-			)),
-			
-			'Settings' => array('label' => __('Settings'), 'href' => '', 'submenu' => array(
-				array('label' => __('System'), 'href' => array('controller' => 'AdminSettings', 'action' => 'index')),
-				array('label' => __('Slider'), 'href' => array('controller' => 'AdminSlider', 'action' => 'index'))
-			))
-			*/
+
 		);
 		$this->aBottomLinks = $this->aNavBar;
 	}
-	
+
+	public function isAuthorized($user) {
+		$group_id = Hash::get($user, 'user_group_id');
+		if ($group_id == 1) {
+			$this->set('currUser', $user);
+			return Hash::get($user, 'active');
+		}
+		$this->redirect($this->Auth->loginAction);
+		return false;
+	}
+
 	public function beforeFilter() {
 		/*
 		$this->loadModel('Section');
