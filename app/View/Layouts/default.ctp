@@ -72,7 +72,7 @@
 				<div class="mobileMenuButton">Menu</div>
 				<div class="logoMenu" data-sticky data-sticky-wrap>
 					<div class="logoMenuInner">
-						<a href="/" class="logo" title="На главную">
+						<a href="/" class="logo" title="<?=__('Go to Home page')?>">
 							<img src="/img/logo.png" alt="KRwiki.net" />
 						</a>
 						<?=$this->element('menu')?>
@@ -102,7 +102,7 @@
 				<div class="centerMenus">
 					<?=$this->element('footer')?>
 				</div>
-				<div class="developmentBy">Разработка сайта:<br /><a href="http://phppainkiller.ru" target="_blank">phppainkiller.ru</a></div>
+				<div class="developmentBy"><?=__('Web-site development')?>:<br /><a href="http://phppainkiller.ru" target="_blank">phppainkiller.ru</a></div>
 			</div>
 		</div>
 	</div>

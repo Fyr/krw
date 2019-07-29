@@ -549,3 +549,15 @@ msgstr "Драгоценные камни"
 
 msgid "Evo-materials for Jewels"
 msgstr "Материалы развития камней"
+
+msgid "%sUser Name"
+msgstr "Имя пользователя"
+
+msgid "Go to Home page"
+msgstr "На главную"
+
+msgid "Web-site development"
+msgstr "Разработка сайта"
+
+msgid "Disclaimer"
+msgstr "Отказ от ответственности"
