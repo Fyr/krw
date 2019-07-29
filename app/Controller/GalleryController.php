@@ -11,9 +11,9 @@ class GalleryController extends AppController {
 	const PER_PAGE = 8;
 	
 	public function beforeFilter() {
-		//$this->inProgress();
 		$this->currMenu = 'Articles';
 		$this->objectType = 'GalleryArticle';
+		parent::beforeFilter();
 	}
 
 	public function index() {

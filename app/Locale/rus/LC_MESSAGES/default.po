@@ -82,10 +82,7 @@ msgstr "Настройки"
 msgid "Home"
 msgstr "Главная"
 
-msgid "Products"
-msgstr "Логотипы"
-
-msgid "About us"
+msgid "About"
 msgstr "О проекте"
 
 msgid "Contacts"
@@ -183,6 +180,9 @@ msgstr "Запомнить"
 
 msgid "Login"
 msgstr "Вход"
+
+msgid "Log in"
+msgstr "Войти"
 
 msgid "Utils"
 msgstr "Утилиты"
@@ -519,3 +519,33 @@ msgstr "Предпросмотр"
 
 msgid "all updates"
 msgstr "все обновления"
+
+msgid "Register"
+msgstr "Регистрация"
+
+msgid "wikipedia of%sKingsRoad"
+msgstr "энциклопедия%sKingsRoad"
+
+msgid "KingsRoad guides%sreviews, tutorials"
+msgstr "KingsRoad гайды%sобзоры, тьюториалы"
+
+msgid "sell / buy%saccount safely"
+msgstr "продать / купить<br />аккаунт безопасно"
+
+msgid "media, game-art%sscreenshots"
+msgstr "медиа, game-арт,<br />скриншоты"
+
+msgid "Market"
+msgstr "Биржа"
+
+msgid "Gallery"
+msgstr "Галерея"
+
+msgid "Gaming Currency"
+msgstr "Игровая валюта"
+
+msgid "Jewels"
+msgstr "Драгоценные камни"
+
+msgid "Evo-materials for Jewels"
+msgstr "Материалы развития камней"

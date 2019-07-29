@@ -18,15 +18,18 @@
 		'fonts',
 		'tinyslider',
 		'custom',
-		'extra'
+		'extra',
+		'forms'
 	));
 
 	$js = array(
 		'vendor/tinyslider.chunk',
 		'vendor/sticky.chunk',
 		'vendor/jquery/jquery-1.10.2.min',
+		'vendor/jquery/jquery.cookie',
 		'custom',
-		'extra'
+		'extra',
+		'lang'
 	);
 	echo $this->Html->script($js);
 
@@ -40,14 +43,25 @@
 		<div class="wrapper mainContent">
 			<div class="header">
 				<ul class="smallMenu menu">
-					<li><a href="/">Главная</a></li>
-					<li><a href="<?=$this->Html->url(array('controller' => 'pages', 'action' => 'view', 'about'))?>">О проекте</a></li>
-					<li><a href="mailto:fyr@tut.by?subject=<?=Configure::read('domain.title')?>%20contacts">Контакты</a></li>
+					<li><a href="/"><?=__('Home')?></a></li>
+					<li><a href="<?=$this->Html->url(array('controller' => 'pages', 'action' => 'view', 'about'))?>"><?=__('About')?></a></li>
+					<li><a href="mailto:fyr@tut.by?subject=<?=Configure::read('domain.title')?>%20contacts"><?=__('Contacts')?></a></li>
 				</ul>
-				<!--ul class="smallMenu languages">
-					<li><a href="#">RU</a></li>
-					<li><a href="#">EN</a></li>
-				</ul-->
+				<ul class="smallMenu">
+					<li class="menu"><a href="<?=$this->Html->url(array('controller' => 'user', 'action' => 'register'))?>"><?=__('Register')?></a></li>
+					<li class="menu"><a href="<?=$this->Html->url(array('controller' => 'user', 'action' => 'login'))?>"><?=__('Log in')?></a></li>
+<?
+	$class = ' first';
+	foreach(Configure::read('Config.langs') as $code => $_lang) {
+		$class.= ($code === $lang) ? ' active' : '';
+?>
+					<li class="languages<?=$class?>"><a href="javascript:;" onclick="setLang('<?=$code?>')"><?=$_lang?></a></li>
+<?
+		$class = '';
+	}
+?>
+
+				</ul>
 			</div>
 	
 			<div class="slider">

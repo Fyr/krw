@@ -12,17 +12,41 @@ class AppController extends Controller {
 		parent::__construct($request, $response);
 		$this->_afterInit();
 	}
-	
+
 	protected function _beforeInit() {
 	    $this->helpers = array_merge(array('Html', 'Form', 'Paginator', 'Media', 'ArticleVars'), $this->helpers);
 	}
 
 	protected function _afterInit() {
-	    // after construct actions here
+		// after construct actions here
+		$this->_initLang();
+	}
+
+	public function _initLang() {
+		$aLangs = array_keys(Configure::read('Config.langs'));
+		if (isset($_COOKIE['lang']) && in_array($_COOKIE['lang'], $aLangs)) {
+			$lang = $_COOKIE['lang'];
+		} else {
+			// Auto detect lang
+			preg_match_all('/([a-z]{1,8}(?:-[a-z]{1,8})?)(?:;q=([0-9.]+))?/', strtolower($_SERVER["HTTP_ACCEPT_LANGUAGE"]), $matches);
+			$langs = array_combine($matches[1], $matches[2]);
+			foreach ($langs as $n => $v)
+				$langs[$n] = $v ? $v : 1;
+			arsort($langs);
+
+			$aSupportLang = array('ru-ru' => 'rus', 'ru' => 'rus');
+			foreach($aSupportLang as $code => $_lang) {
+				if (isset($langs[$code])) {
+					$lang = $_lang;
+					break;
+				}
+			}
+		}
+		Configure::write('Config.language', $lang);
 	}
 	
 	public function isAuthorized($user) {
-    	$this->set('currUser', $user);
+		$this->set('currUser', $user);
 		return Hash::get($user, 'active');
 	}
 
@@ -58,6 +82,7 @@ class AppController extends Controller {
 	
 	protected function beforeFilterLayout() {
 		$this->objectType = $this->getObjectType();
+		// $this->Auth->allow(array('home', 'index', 'view', 'login', 'register'));
 	}
 	
 	public function beforeRender() {
@@ -68,6 +93,7 @@ class AppController extends Controller {
 		$this->set('pageTitle', $this->pageTitle);
 		$this->set('aBreadCrumbs', $this->aBreadCrumbs);
 		$this->set('seo', $this->seo);
+		$this->set('lang', Configure::read('Config.language'));
 
 		$this->beforeRenderLayout();
 	}
@@ -80,6 +106,11 @@ class AppController extends Controller {
 			'order' => array('sorting' => 'ASC')
 		));
 		*/
+		Configure::write('aWikiSections', array(
+			'gaming-currency' => __('Gaming Currency'),
+			'jewels' => __('Jewels'),
+			'evo-materials-stones' => __('Evo-materials for Jewels')
+		));
 		$this->set('aWikiSections', Configure::read('aWikiSections'));
 	}
 	

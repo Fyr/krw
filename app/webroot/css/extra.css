@@ -1,8 +1,45 @@
 .header {
     padding: 7px 20px 0 20px;
 }
-.header .languages a {
+.header .languages a, .header .languages a:visited {
+    text-decoration: none;
+}
+.header .languages a:hover {
+    text-decoration: underline;
+}
+.header .languages.active a:hover {
+    text-decoration: none;
+}
+.header .languages.active a {
     font-weight: bold;
+    background: #d31c1c;
+    color: #fff;
+    padding: 0 3px;
+}
+
+.smallMenu li:before {
+    border-left: none !important;
+}
+
+.smallMenu li:before {
+    border-left: none !important;
+}
+
+.smallMenu li.menu:before {
+    border-left: 1px solid #fff !important;
+}
+
+.smallMenu li.languages:before {
+    border-left: 1px solid #f00 !important;
+}
+
+.smallMenu li.languages.first:before {
+    border-left: none !important;
+    margin-left: 20px;
+}
+
+.smallMenu li.languages.first {
+    margin-left: 25px;
 }
 
 h1 {

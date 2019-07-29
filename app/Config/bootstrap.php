@@ -18,7 +18,8 @@ CakeLog::config('error', array(
 	'file' => 'error',
 ));
 // Configure::write('Exception.renderer', 'SiteExceptionRenderer');
-Configure::write('Config.language', 'rus');
+Configure::write('Config.langs', array('eng' => 'EN', 'rus' => 'RU'));
+// Configure::write('Config.language', 'rus');
 
 /*
 // Values from google recaptcha account
@@ -39,12 +40,6 @@ if (TEST_ENV) {
 		'title' => 'KRwiki.net'
 	));
 }
-
-Configure::write('aWikiSections', array(
-	'gaming-currency' => 'Игровая валюта',
-	'jewels' => 'Драгоценные камни',
-	'evo-materials-stones' => 'Материалы развития камней'
-));
 
 define('AUTH_ERROR', __('Invalid username or password, try again'));
 define('EMAIL_ADMIN', 'fyr.work@gmail.com');

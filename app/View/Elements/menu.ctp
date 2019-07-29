@@ -1,9 +1,9 @@
 <?
     $aMenu = array(
-        array('title' => 'Wiki', 'subTitle' => 'энциклопедия<br />KingsRoad', 'url' => array('controller' => 'wiki', 'action' => 'index')),
-        array('title' => 'Игрокам', 'subTitle' => 'KingsRoad гайды<br />статьи, обзоры', 'url' => array('controller' => 'articles', 'action' => 'index')),
-        array('title' => 'Биржа', 'subTitle' => 'продать / купить<br />аккаунт безопасно', 'url' => array('controller' => 'pages', 'action' => 'view', 'market')),
-        array('title' => 'Галерея', 'subTitle' => 'медиа, пиксель-арт,<br />скриншоты', 'url' => array('controller' => 'gallery', 'action' => 'index'))
+        array('title' => 'Wiki', 'subTitle' => __('wikipedia of%sKingsRoad', '<br/>'), 'url' => array('controller' => 'wiki', 'action' => 'index')),
+        array('title' => __('Articles'), 'subTitle' => __('KingsRoad guides%sreviews, tutorials', '<br/>'), 'url' => array('controller' => 'articles', 'action' => 'index')),
+        array('title' => __('Market'), 'subTitle' => __('sell / buy%saccount safely', '<br/>'), 'url' => array('controller' => 'pages', 'action' => 'view', 'market')),
+        array('title' => __('Gallery'), 'subTitle' => __('media, game-art%sscreenshots', '<br/>'), 'url' => array('controller' => 'gallery', 'action' => 'index'))
     );
 ?>
 <ul class="mainMenu">
