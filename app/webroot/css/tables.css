@@ -1,0 +1,29 @@
+.grid {
+    border: 1px solid ;
+}
+.grid .nowrap {
+    white-space: nowrap;
+}
+
+.grid > thead > tr > th {
+    padding: 3px 5px;
+    text-align: center;
+    vertical-align: middle;
+}
+/*
+.grid > thead > tr.grid-filter > th:first-child {
+    border: 0px solid #fff;
+}
+*/
+.grid > thead > tr > th, .grid > tbody > tr > td {
+    border: 1px solid #8d120d;
+    padding: 3px 5px;
+    vertical-align: middle;
+}
+
+/*
+.grid .grid-row:nth-child(odd) td {
+    background: #ebeff2;
+    border-left: 1px solid #fff;
+}
+*/

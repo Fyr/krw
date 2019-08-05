@@ -57,7 +57,6 @@ class AppController extends Controller {
 	
 	public function isAuthorized($user) {
 		$this->set('currUser', $user);
-		fdebug($user);
 		return Hash::get($user, 'active');
 	}
 

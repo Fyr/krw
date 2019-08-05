@@ -19,7 +19,9 @@
 		'tinyslider',
 		'custom',
 		'extra',
-		'forms'
+		'forms',
+		'tables',
+		'progress-bar'
 	));
 
 	$js = array(
@@ -55,11 +57,12 @@
 			</div>
 			<div class="header">
 				<ul class="smallMenu menu">
-					<li><a href="<?=$this->Html->url(array('controller' => 'user', 'action' => 'dashboard'))?>"><?=__('Dashboard')?></a></li>
-					<li><a href="<?=$this->Html->url(array('controller' => 'user', 'action' => 'account'))?>"><?=__('Account')?></a></li>
+					<!--li><a href="<?=$this->Html->url(array('controller' => 'user', 'action' => 'dashboard'))?>"><?=__('Dashboard')?></a></li>
+					<li><a href="<?=$this->Html->url(array('controller' => 'user', 'action' => 'account'))?>"><?=__('Account')?></a></li-->
 					<li><a href="<?=$this->Html->url(array('controller' => 'user', 'action' => 'profile'))?>"><?=__('Game profile')?></a></li>
-					<li><a href="<?=$this->Html->url(array('controller' => 'user', 'action' => 'snapshots'))?>"><?=__('Snapshots')?></a></li>
-					<li><a href="<?=$this->Html->url(array('controller' => 'user', 'action' => 'snapshots'))?>"><?=__('Guild stats')?></a></li>
+					<li><a href="<?=$this->Html->url(array('controller' => 'user', 'action' => 'snapshotList'))?>"><?=__('Snapshots')?></a></li>
+					<li><a href="<?=$this->Html->url(array('controller' => 'user', 'action' => 'stats'))?>"><?=__('Guild stats')?></a></li>
+					<li><a href="<?=$this->Html->url(array('controller' => 'user', 'action' => 'reports'))?>"><?=__('Guild reports')?></a></li>
 				</ul>
 				<ul class="smallMenu">
 					<li class="menu">Welcome, <a href="<?=$this->Html->url(array('controller' => 'user', 'action' => 'dashboard'))?>"><?=$currUser['username']?></a></li>
